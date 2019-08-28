@@ -42,7 +42,7 @@ public class A1Novice {
 			twoDeci = String.format("%.2f", total);
 			
 			// Prints total for customer
-			System.out.println(firstName.substring(0,1) + ". " + lastName + ": " + total);
+			System.out.println(firstName.substring(0,1) + ". " + lastName + ": " + twoDeci);
 			
 			// Resets Total
 			total = 0;
