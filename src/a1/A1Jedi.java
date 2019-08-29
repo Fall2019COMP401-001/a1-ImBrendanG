@@ -7,6 +7,7 @@ public class A1Jedi {
 	public static void main(String[] args) {
 		
 		Scanner scan = new Scanner(System.in);
+		
 		// Declare variables
 		int differentItems = 0;
 		int customers = 0;
@@ -35,6 +36,7 @@ public class A1Jedi {
 					
 		}
 		
+		// Reads amount of customers
 		customers = scan.nextInt();
 		
 		// Goes through each customers
@@ -43,25 +45,38 @@ public class A1Jedi {
 			firstName = scan.next();
 			lastName = scan.next();
 			customerItems = scan.nextInt();
-					
+			
+			// Sets arrays to length of the amount of customers different items
+			int[] customerItemAmount = new int[customerItems];
+			String[] customerItemName = new String[customerItems];
+			
 			// Goes through the items of customer
 			for(int k = 0; k < customerItems; k++) {
 				
 				itemAmount = scan.nextInt();
 				itemName = scan.next();
 				
+				customerItemAmount[k] = itemAmount;
+				customerItemName[k] = itemName;
+				
+				
+				// Goes through
 				for(int l = 0; l < differentItems; l++) {
 					if(itemName.equals(itemNames[l])) {
-						customerCounter[l] += 1;
 						itemCounter[l] += itemAmount;
+						
+						// Finds the amount of customers who bought a specific item
+						for(int m = 0; m<customerItemName.length; m++) {
+							if(customerItemName.length > 1 & itemName.equals(customerItemName[m])) {
+								// Does not increase the amount of customers who bought item if there are repeated items has one item
+							}
+							else {
+								// Increases customers who bought a specific item
+								customerCounter[l] += 1;
+							} 
+						}	
 					}
 				}
-				
-				
-				
-				
-						
-				
 			}
 		}
 		
@@ -73,9 +88,7 @@ public class A1Jedi {
 			}
 			else {
 				System.out.println(customerCounter[i] + " customers bought " + itemCounter[i] + " " + itemNames[i]);
-			}
-			
+			}	
 		}
-		
 	}
 }
