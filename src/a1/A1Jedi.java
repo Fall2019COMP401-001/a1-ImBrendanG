@@ -80,6 +80,9 @@ public class A1Jedi {
 						repeats[x] += 1;
 					}
 				}
+				if(repeats[x] == customerItemName.length-1) {
+					repeats[x] = repeats[x] - 1;
+				}
 			}
 			for(int x = 0; x < differentItems; x++) {
 				for(int y = 0; y < customerItemName.length; y++) {
