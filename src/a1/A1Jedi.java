@@ -53,31 +53,43 @@ public class A1Jedi {
 			// Goes through the items of customer
 			for(int k = 0; k < customerItems; k++) {
 				
+				
 				itemAmount = scan.nextInt();
 				itemName = scan.next();
+				
+
 				
 				customerItemAmount[k] = itemAmount;
 				customerItemName[k] = itemName;
 				
-				
-				// Goes through
+				// Goes through to find itemCounter and customerCounter
 				for(int l = 0; l < differentItems; l++) {
 					if(itemName.equals(itemNames[l])) {
 						itemCounter[l] += itemAmount;
+						customerCounter[l] += 1;
 						
-						// Finds the amount of customers who bought a specific item
-						for(int m = 0; m<customerItemName.length; m++) {
-							if(customerItemName.length > 1 & itemName.equals(customerItemName[m])) {
-								// Does not increase the amount of customers who bought item if there are repeated items has one item
-							}
-							else {
-								// Increases customers who bought a specific item
-								customerCounter[l] += 1;
-							} 
-						}	
+					}
+					
+				}
+				
+			}
+			int[] repeats = new int[customerItemName.length];
+			for(int x = 0; x < customerItemName.length; x++) {
+				for(int y = x + 1; y < customerItemName.length; y++) {
+					if(customerItemName[x].equals(customerItemName[y])) {
+						repeats[x] += 1;
 					}
 				}
 			}
+			for(int x = 0; x < differentItems; x++) {
+				for(int y = 0; y < customerItemName.length; y++) {
+					if(customerItemName[y].equals(itemNames[x])) {
+						customerCounter[x] = customerCounter[x] - repeats[y];
+					}
+				}
+			}
+			
+			
 		}
 		
 		// Prints how many customers bought an item and how many of that item were bought
