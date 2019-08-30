@@ -85,9 +85,16 @@ public class A1Jedi {
 				}
 			}
 			for(int x = 0; x < differentItems; x++) {
-				for(int y = 0; y < customerItemName.length; y++) {
-					if(customerItemName[y].equals(itemNames[x])) {
-						customerCounter[x] = customerCounter[x] - repeats[y];
+				if(customerItemName.length == 1) {
+					if(customerItemName[0].equals(itemNames[x])) {
+						customerCounter[x] += 1;
+					}
+				}
+				else {
+					for(int y = 0; y < customerItemName.length; y++) {
+						if(customerItemName[y].equals(itemNames[x])) {
+							customerCounter[x] = customerCounter[x] - repeats[y];
+						}
 					}
 				}
 			}
