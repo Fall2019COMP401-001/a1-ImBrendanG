@@ -87,7 +87,7 @@ public class A1Jedi {
 			for(int x = 0; x < differentItems; x++) {
 				if(customerItemName.length == 1) {
 					if(customerItemName[0].equals(itemNames[x])) {
-						customerCounter[x] += 1;
+						// Nothing
 					}
 				}
 				else {
